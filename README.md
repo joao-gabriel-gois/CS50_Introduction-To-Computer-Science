@@ -21,7 +21,7 @@
       <br>
     - <strong>(_Troubleshooting_) To compile on <u>Ubuntu</u>:</strong>
 
-      1. Instead of __make, <u>in case of any errors</u>,__ add following script in a file in your home directory (`~`), named as, let's say, `run` :
+      1. Instead of __make, <u>in case of any errors</u>,__ add following script in a file in your user directory (`~`), named as, let's say, `run` :
 
           * 
             ```(bash)
