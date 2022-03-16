@@ -16,7 +16,7 @@ int main(void) {
     // otherwise the last one called will overwrite
     // the others above it or throw errors:
   
-  //int size = get_size_from_user_do_while();
+  // int size = get_size_from_user_do_while();
   // int size = get_size_from_user_while_true();
   int size = get_size_from_user_recursion(0);
 
@@ -72,4 +72,3 @@ int get_size_from_user_recursion(int size) {
   size = get_int("Size: ");
   return get_size_from_user_recursion(size);
 }
-
