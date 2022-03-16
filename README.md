@@ -4,9 +4,11 @@
 
 ## Class 1:
   - ### _Summary and Lecture_:
-    - __C language__: data types, loops, branches, functions (returning, declaration X assigignment), variables, consts, I/O;
+    - __C language__: data types, loops, branches (if/else), functions (returning values, declaration X assignment), variables, consts, I/O;
 
     - __Lecture__: [CS-50: Class 1](https://video.cs50.io/Na2wiHOnzXU?screen=sqgyiZCQ6Y8);
+
+    - __File `calculator.c` implements all points mentioned in this class__
 
   <br>
   
@@ -18,30 +20,40 @@
       
       <br>
     - <strong>(_Troubleshooting_) To compile on <u>Ubuntu</u>:</strong>
-      - Instead of __make__, in case of any errors, add following script in a file in your home directory (`~`), named as, let's say, `run` :
 
-        ```(bash)
-        #!/usr/bin/env bash
+      1. Instead of __make, <u>in case of any errors</u>,__ add following script in a file in your home directory (`~`), named as, let's say, `run` :
 
-        gcc ./$1 -o b -lcs50 && ./b && rm b"
-        ```
+          * 
+            ```(bash)
+            #!/usr/bin/env bash
 
-      * Now allow it to execute:
-        ```
-        chmod u+x ~/run
-        ```
-      * **Done!** Now you can run directly from source, in any directory, without remaining binaries, by running:
-        
-        * Using relative path (from current directory): 
-        ```
-        ~/run ../relative/path/to/file_name.c
-        ```
+            gcc ./$1 -o b -lcs50 && ./b && rm b
+            ```
 
-        * Or any source code in the current directory:
-        ```
-        ~/run file_name.c
-        ```
+            > _It compiles based on source code filename informed as first argument of the script, ensures it will use cs50 lib in the process, then execute it and finally, after execution, it removes the (executable) binary_ 
 
-<br>
+      </br>
+
+      2. Now allow it to execute:
+
+          *
+            ```
+            chmod u+x ~/run
+            ```
+
+      3. **Done!** Now you can run directly from source code, in any directory, without remaining binaries, by running like examples below:
+      
+          * Using relative path (from current directory): 
+          
+            ```
+            ~/run ../relative/path/to/file_name.c
+            ```
+
+          * Or any source code in the current directory:
+
+            ```
+            ~/run file_name.c
+            ```
+</br>
 
 ## Class 2:
