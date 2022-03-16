@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <cs50.h>
 
-// Code for complete basic calculator using almost all examples
-//   of this class (missing loops, but it will be in other projects)
+// Code for complete basic calculator
+// using all lessons from class
 
-// Declaring Functions
+// (1) - Declaring Functions (as in headers - .h files)
 float calculate(int x, int y, char operator);
 void print_line(string before_message);
 char fix_if_unvalid_operator(char operator);
 void print_result(int x, char operator, int y, float result);
 
 
+// (2) - Main Flow
 int main(void) {
   int i = get_int("How many calculations you'll do? ");
   print_line("\n");
@@ -32,7 +33,7 @@ int main(void) {
 }
 
 
-// Assigning functions
+// (3) - Assigning functions
 float calculate(int x, int y, char operator)  {
   if (operator == '+') return x + y;
   else if (operator == '-') return x - y;
@@ -79,3 +80,4 @@ char fix_if_unvalid_operator(char operator) {
     operator == '+' || operator == '-' || operator == '*' || operator == '/'
   ) ? operator : '+';
 }
+
