@@ -32,7 +32,7 @@ void print_square(int square_size)  {
   for (int row = 0; row < square_size; row++) {
 
     for (int column = 0; column < square_size; column++) {
-      printf("#");
+      printf("# ");
     }
     // Everytime a row is printed, break a line once it reaches
       // the square size (the 10th column if size = 10) to start
