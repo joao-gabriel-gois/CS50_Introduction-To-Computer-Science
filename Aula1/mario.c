@@ -16,9 +16,9 @@ int main(void) {
     // otherwise the last one called will overwrite
     // the others above it or throw errors:
   
-  int size = get_size_from_user_do_while();
+  //int size = get_size_from_user_do_while();
   // int size = get_size_from_user_while_true();
-  // int size = get_size_from_user_recursion(0);
+  int size = get_size_from_user_recursion(0);
 
   print_square(size);
 }
@@ -47,7 +47,7 @@ void print_square(int square_size)  {
 int get_size_from_user_do_while() {
   int size;
   do {
-    size = get_int("What is the size you want your square? ");
+    size = get_int("Size: ");
   } while (size <= 0);
 
   return size;
@@ -57,7 +57,7 @@ int get_size_from_user_do_while() {
 int get_size_from_user_while_true() {
   int size;
   while (true) {
-    size = get_int("What is the size you want your square? ");
+    size = get_int("Size: ");
     
     if (size > 0) break;
   }
@@ -69,6 +69,7 @@ int get_size_from_user_while_true() {
 int get_size_from_user_recursion(int size) {
   if (size > 0) return size;
     
-  size = get_int("What is the size you want your square? ");
+  size = get_int("Size: ");
   return get_size_from_user_recursion(size);
 }
+
