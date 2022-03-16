@@ -55,6 +55,7 @@ void print_line(string before_message) {
   printf("\n");
 }
 
+
 void print_result(int x, char operator, int y, float result) {
   printf(
     "\n%sResult:%s %s%i%s %c %s%i%s = %s%.4f%s\n",
@@ -75,9 +76,9 @@ void print_result(int x, char operator, int y, float result) {
   print_line("");
 }
 
+
 char fix_if_unvalid_operator(char operator) {
   return (
     operator == '+' || operator == '-' || operator == '*' || operator == '/'
   ) ? operator : '+';
 }
-

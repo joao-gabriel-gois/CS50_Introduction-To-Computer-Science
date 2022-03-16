@@ -8,7 +8,7 @@
 
     - __Lecture__: [CS-50: Class 1](https://video.cs50.io/Na2wiHOnzXU?screen=sqgyiZCQ6Y8);
 
-    - __File `calculator.c` implements all points mentioned in this class__
+    - __File `calculator.c` implements all points mentioned in this class, also `mario.c` is an important example for loop__
 
   <br>
   
