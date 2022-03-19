@@ -6,7 +6,7 @@
   - ### _Summary and Lecture_:
     - __C language__: data types, loops, branches (if/else), functions (returning values, declaration X assignment), variables, consts, I/O;
 
-    - __Lecture__: [CS-50: Class 1](https://video.cs50.io/Na2wiHOnzXU?screen=sqgyiZCQ6Y8);
+    - __Lecture__: [CS-50: Class 1](https://cs50.harvard.edu/x/2022/weeks/1/);
 
     - __File `calculator.c` implements all points mentioned in this class, also `mario.c` is an important example for loop__
 
