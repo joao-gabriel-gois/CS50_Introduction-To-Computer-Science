@@ -6,6 +6,7 @@ void print_grid(int height, int row);
 void print_triangle(int height);
 
 
+
 int main(void) {
   int height = get_int("Height: ");
 
@@ -15,10 +16,8 @@ int main(void) {
 }
 
 
-// Utils
-void print_triangle(int height) {
-  printf("\n");
 
+void print_triangle(int height) {
   for (int row = 1; row <= height; row++) { 
     print_left_spaces(height, row);
     print_grid(height, row);
@@ -26,8 +25,6 @@ void print_triangle(int height) {
     print_grid(height, row);
     printf("\n");
   }
-
-  printf("\n");
 }
 
 

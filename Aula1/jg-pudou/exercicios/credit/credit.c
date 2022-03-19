@@ -4,25 +4,23 @@
 #include <math.h>
 #include <string.h>
 
-//Utils
+// Utils
 int get_first_2_digits(long int credit_card_number);
 int get_last_digit(int luhn_step_two_result);
+// string return_bool_as_string(bool boolean);
 int get_long_length(long int number);
 string convert_long_to_string(long int long_int);
-//string return_bool_as_string(bool boolean);
 
 // Business logic functions
-int luhn_step_one(long int credit_card_number);
-int luhn_step_two(int luhn_step_one_result, long int credit_card_number);
-int check_numeral_size_and_adjust(int value);
 bool check_with_algorithm_of_luhn(long int credit_card_number);
 string get_credit_card_brand(long int credit_card_number);
+int luhn_calculate(long int credit_card_number);
+int check_numeral_size_and_adjust(int value);
 
 
 
 void main(void) {
-  long int credit_card_number = get_long("Insert your credit card number: ");
-  
+  long int credit_card_number = get_long("Insert your credit card number: "); 
   bool is_credit_card_valid = check_with_algorithm_of_luhn(credit_card_number);
 
   printf("Number: %li\n", credit_card_number);
@@ -35,7 +33,6 @@ void main(void) {
   string credit_card_brand = get_credit_card_brand(credit_card_number);
   
   printf("%s", credit_card_brand);
-
 }
 
 
@@ -55,62 +52,45 @@ string get_credit_card_brand(long int credit_card_number) {
 
   else if (str_first_2_digits[0] == '4') return "VISA\n";
 
-  return "\033[01;33mERROR: Somehow you have a valid card but it is not AMEX, MASTERCARD or VISA\033[m";
+  return "\033[01;31mERROR: \033[00;33mSomehow you have a valid card but it is not AMEX, MASTERCARD or VISA\n\033[m";
 }
 
 
-
-
 bool check_with_algorithm_of_luhn(long int credit_card_number) {
-  // Waterfall
-  int luhn_step_one_result = luhn_step_one(credit_card_number);
-  int luhn_step_two_result = luhn_step_two(luhn_step_one_result, credit_card_number);
-  int last_digit = get_last_digit(luhn_step_two_result);
+  int luhn_result = luhn_calculate(credit_card_number);
+  int last_digit = get_last_digit(luhn_result);
 
   return last_digit == 0;
 }
 
 
-
-int luhn_step_one(long int credit_card_number) {
+int luhn_calculate(long int credit_card_number) {
   string str_credit_card_number = convert_long_to_string(credit_card_number);
 
-  int result = 0;
+  int result1 = 0;
+  int result2 = 0;
 
   int credit_card_number_length = strlen(str_credit_card_number);
   for (int i = 0; i < credit_card_number_length; i++) {
     if (i % 2 == 0) {
-        int current = str_credit_card_number[i] - '0';
+      int current = str_credit_card_number[i] - '0';
 
-        int doubled_current = current * 2;
+      int doubled_current = current * 2;
 
-        doubled_current = check_numeral_size_and_adjust(doubled_current);
-        
-        result = result + doubled_current;
+      doubled_current = check_numeral_size_and_adjust(doubled_current);
+      
+      result1 = result1 + doubled_current;
+    }
+    else {
+      int current = str_credit_card_number[i] - '0';
+
+      current = check_numeral_size_and_adjust(current);
+      
+      result2 = result2 + current;
     }
   }
 
-  return result;
-}
-
-
-int luhn_step_two(int luhn_step_one_result, long int credit_card_number) {
-  string str_credit_card_number = convert_long_to_string(credit_card_number);
-  
-  int result = 0;
-
-  int credit_card_number_length = strlen(str_credit_card_number);
-  for (int i = 0; i < credit_card_number_length; i++) {
-    if (i % 2 != 0) {
-        int current = str_credit_card_number[i] - '0';
-
-        current = check_numeral_size_and_adjust(current);
-        
-        result = result + current;
-    }
-  }
-
-  return result + luhn_step_one_result;
+  return result1 + result2;
 }
 
 
