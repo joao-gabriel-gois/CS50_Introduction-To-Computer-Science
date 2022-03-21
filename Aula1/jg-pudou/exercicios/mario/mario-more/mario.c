@@ -4,11 +4,18 @@
 void print_left_spaces(int height, int row);
 void print_grid(int height, int row);
 void print_triangle(int height);
+bool validate_height(int height);
 
 
 
 int main(void) {
-  int height = get_int("Height: ");
+  bool is_valid_height;
+  int height;
+
+  do {
+    int height = get_int("Height: ");
+    is_valid_height = validate_height(height);
+  } while (!is_valid_height);
 
   print_triangle(height);
 
@@ -21,7 +28,7 @@ void print_triangle(int height) {
   for (int row = 1; row <= height; row++) { 
     print_left_spaces(height, row);
     print_grid(height, row);
-    printf(" ");
+    printf("  ");
     print_grid(height, row);
     printf("\n");
   }
@@ -41,4 +48,10 @@ void print_grid(int height, int row) {
   for (int right_grid = 0; row > right_grid; right_grid++) {
     printf("#");
   }
+}
+
+
+bool validate_height(int height) {
+  if (height < 1 || height > 8) return false;
+  return true;
 }
