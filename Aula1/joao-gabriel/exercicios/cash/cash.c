@@ -9,7 +9,7 @@
   // non-cents and use notes, so my program will only tell
   // the real mininum coins needed for change
 
-// To check an real solution for this exercise, based on  cs50 course 
+// To check an real solution for this exercise, based on cs50 course 
 // challenge, please check file ./check_submitted_version.c
 
 // Business Logic Funtions
