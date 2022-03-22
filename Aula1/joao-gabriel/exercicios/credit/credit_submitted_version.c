@@ -1,14 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <math.h>
-/*
-  RANT:
-    As style50 force us to use ugly style and add more comments (WHY!?),
-      I'll comment directly to it with tag [style50].
 
-    So I'll not lose ~~style points and will make my code a mess with
-      lots of comments as they like.
-*/
 
 // Utils
 int get_first_2_digits(long int credit_card_number);
