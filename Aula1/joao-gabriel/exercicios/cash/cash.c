@@ -2,6 +2,16 @@
 #include <stdio.h>
 #include <math.h>
 
+// This version will fail in CS50 Tests (check50)
+  // Because to challenge myself I created a validation
+  // middleware to only consider last 2 digs from cents input
+  // everything else bigger than that could be converted to 
+  // non-cents and use notes, so my program will only tell
+  // the real mininum coins needed for change
+
+// To check an real solution for this exercise, based on  cs50 course 
+// challenge, please check file ./check_submitted_version.c
+
 // Business Logic Funtions
 int get_cents(void);
 int calculate_quarters(int cents);
