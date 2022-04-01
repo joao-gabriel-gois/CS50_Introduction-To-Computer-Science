@@ -27,10 +27,28 @@
             ```(bash)
             #!/usr/bin/env bash
 
-            gcc ./$1 -o b -lcs50 && ./b && rm b
+            ls ./b > /dev/null 2> /dev/null
+
+            if [[ $? == 0 ]]; then
+                rm ./b
+            fi
+
+            args=""
+            for arg in "$@";
+            do
+                if [[ $arg != $1 ]]; then
+                    args="${args} $arg";
+                fi
+            done
+
+            if [[ $args == "" ]]; then
+                gcc ./$1 -o b -lm -lcs50 && ./b && rm ./b  
+            else
+                gcc ./$1 -o b -lm -lcs50 && ./b $args && rm ./b
+            fi
             ```
 
-            > _It compiles based on source code filename informed as first argument of the script, ensures it will use cs50 lib in the process, then execute it and finally, after execution, it removes the (executable) binary_ 
+            > _It compiles based on source code filename informed as first argument of the script, ensures it will use cs50 lib in the process, then execute it and finally, after execution, it removes the (executable) binary. It handles 2 different executable calls, with or without arguments..._ 
 
       </br>
 
@@ -57,3 +75,5 @@
 </br>
 
 ## Class 2:
+
+
