@@ -61,7 +61,8 @@ string get_caesar_ciphertext(string plaintext, int key) {
   // end - needs to add last element manually on cipher array to indicate its end
 
 
-  string cipher_to_return = cipher;
+  string cipher_to_return;
+  strcpy(cipher_to_return, cipher);
 
   return cipher_to_return;
 }
