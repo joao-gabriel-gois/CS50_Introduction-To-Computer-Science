@@ -22,14 +22,11 @@ bool vote(string name);
 void print_winner(void);
 candidate get_most_voted_last_match();
 
-
 // First Version - Submitted one because of schedule
 //  O(n) - linear approach
 //    -> Depending on how much time after finishing other exercises
 //       I'll implement both Selection and Merge sort alike approaches
 //       For this very same exercise
-
-
 
 int main(int argc, string argv[]) {
   // Check for invalid usage
@@ -83,8 +80,8 @@ bool vote(string name) {
 // Print the winner (or winners) of the election
 void print_winner(void) {
   candidate most_voted = get_most_voted_last_match();
-
   int i = 0;
+
   while (i < candidate_count) {
     if (most_voted.votes == candidates[i].votes) {
       printf("%s\n", candidates[i].name);
@@ -98,9 +95,11 @@ void print_winner(void) {
 candidate get_most_voted_last_match() {
   int i = 0;
   candidate most_voted = candidates[i];
+
   while (i < candidate_count - 1) {
     most_voted = most_voted.votes > candidates[i + 1].votes ? most_voted : candidates[i + 1];
     i++;
   }
+
   return most_voted;
 }
