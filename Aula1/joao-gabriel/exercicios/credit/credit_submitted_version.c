@@ -162,6 +162,13 @@ string convert_long_to_string(long int long_int) // [style50] JUST STOP, PEOPLE 
           declared string_to_return in the same scope, but
           assignments where done in a different way.
         Need to understand C better yet. (:
+
+
+        [Edit]: Finnally got it: Go to Class4 (Aula4 dir) and checkout comment on
+        file called 'what_strings_actualy-are.c'.
+
+        I'll not correct here, but there is the implementation of this same function
+        using proper memory allocation.
     */
     string string_to_return;
 

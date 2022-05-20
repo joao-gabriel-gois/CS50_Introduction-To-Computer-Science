@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Cause it took almost twice the time of Selection Sort to sort 50000 lines, as per it complexity when n = 50000  (n^2 - 2n + 1)
+
+sort2 uses: Merge Sort
+
+How do you know?: Cause it was very faster for a long list, as per it complexity (n log n)
+
+sort3 uses: Selection Sort
+
+How do you know?: It took half time than Bubble Sort to sort 50000 lines, as per it complexity for n = 50000 ((n ^ 2 + n) / 2).

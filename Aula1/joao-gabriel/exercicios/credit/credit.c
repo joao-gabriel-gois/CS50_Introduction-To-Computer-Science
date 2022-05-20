@@ -138,6 +138,12 @@ string convert_long_to_string(long int long_int) {
     Because just like str, I've declared string_to_return in the same
     scope, but assignments where done in a different way.
     Need to understand C better yet. (:
+
+    [Edit]: Finnally got it: Go to Class4 (Aula4 dir) and checkout comment on
+    file called 'what_strings_actualy-are.c'.
+
+    I'll not correct here, but there is the implementation similar to this function
+    using proper memory allocation. It calls conver_number_to_string
   */
   string string_to_return;
 
