@@ -35,8 +35,7 @@ void print_winner(void);
 // Utils prototypes
 int get_pair_strenth(pair p);
 
-int main(int argc, string argv[])
-{
+int main(int argc, string argv[]) {
   // [CS50] Check for invalid usage
   if (argc < 2) {
     printf("Usage: tideman [candidate ...]\n");
@@ -150,10 +149,9 @@ void sort_pairs(void) {
     int previous_pair_strength = get_pair_strenth(previous_pair);
     int current_pair_strength = get_pair_strenth(current_pair);
 
-    if (previous_pair_strength < current_pair_strength)
-    {
-        pairs[i - 1] = current_pair;
-        pairs[i] = previous_pair;
+    if (previous_pair_strength < current_pair_strength) {
+      pairs[i - 1] = current_pair;
+      pairs[i] = previous_pair;
     }
   }
 
