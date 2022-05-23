@@ -4,10 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef uint8_t byte;
+typedef int16_t sample;
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
-typedef uint8_t byte;
-typedef uint16_t sample;
+
 
 int main(int argc, char *argv[])
 {
@@ -18,9 +19,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Open files and determine scaling factor
     FILE *input = fopen(argv[1], "r");
-
     if (input == NULL)
     {
         printf("Could not open file.\n");
@@ -37,36 +36,20 @@ int main(int argc, char *argv[])
     float factor = atof(argv[3]);
 
     // Copying header from input file to output file
-    byte* header = malloc(HEADER_SIZE * sizeof(byte));
-    fread(header, sizeof(byte), HEADER_SIZE, input);
-    
-    fseek(input, 0, SEEK_END);
-    long int file_size = ftell(input);
-    long int file_body_size = file_size - HEADER_SIZE;
-    
-    sample* samples = malloc(sizeof(sample) * file_body_size / 2);
-    fseek(input, HEADER_SIZE - 1, SEEK_SET);
-    fread(samples, sizeof(sample), file_body_size / 2, input);
+    byte header[HEADER_SIZE];
+    fread(&header, HEADER_SIZE, 1, input);
+    fwrite(&header, HEADER_SIZE, 1, output);
 
-    // 4) Duplicating sample values
-    for (int i = 0; i < file_body_size / 2; i++)
-        samples[i] = (sample) (samples[i] * factor);
+    // Writing altered sample just after read one by oneS
+    sample buffer;
+    while (fread(&buffer, sizeof(sample), 1, input))
+    {
+        buffer *= factor;
+        fwrite(&buffer, sizeof(sample), 1, output);
+    }
 
-    fseek(output, 0, SEEK_SET);
-    printf("\nCurrent 'output' position: %li\n", ftell(output));
-
-    fwrite(header, sizeof(byte), HEADER_SIZE - 1, output);
-    printf("Current 'output' position: %li\n", ftell(output));
-
-    fwrite(samples, sizeof(sample), file_body_size / 2, output);
-    printf("Current 'output' position: %li\n\n", ftell(output));
-
-    // Close files
     fclose(input);
     fclose(output);
-    //Free heap
-    free(samples);
-    free(header);
 
     return 0;
 }
