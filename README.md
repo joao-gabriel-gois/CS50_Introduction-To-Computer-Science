@@ -76,4 +76,4 @@
 
 ## Class 2:
 
-
+(new notes will be updated soon, before python lessons starts)
