@@ -105,20 +105,15 @@ node* insert(node* list, int number) {
 }
 
 bool removeFirst(node** list, int number) {
-  if (*list != NULL && (*list)->number == number) {
+  // need to stress out if recent refactor didn't affected behaviour
+  if (*list == NULL) return false;
+  else if ((*list)->number == number) {
     node* tmp = *list;
     *list = tmp->next;
     free(tmp);
   
     return true;
   }
-  else if ((*list)->next != NULL && (*list)->next->number == number) {
-    node* tmp = (*list)->next;
-    (*list)->next = tmp->next;
-    free(tmp);
-    return true;
-  }
-  else if ((*list)->next == NULL) return false;
 
   removeFirst(&(*list)->next, number);
 }
