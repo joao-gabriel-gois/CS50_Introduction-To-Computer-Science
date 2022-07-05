@@ -124,7 +124,7 @@ bool removeFirst(node** list, int number) {
 }
 
 void destroy(node* list) {
-  if (list->next != NULL) return;
+  if (list->next == NULL) return;
   destroy(list->next);
   //printf("free(&temp), where *temp = %i\n", list->number);
   free(list);
