@@ -1,18 +1,35 @@
 #include <cs50.h>
 #include <stdio.h>
-
 /*
-  Implementing All 3 Types of sorts and printing all outputs
+  Implementing Bubble and Selection of sort and printing all outputs
 */
 void bubble_sort(int array_length, int array[array_length]);
 void selection_sort(int array_length, int array[array_length]);
-//void merge_sort(int array_length, int array[array_length]);
-//Utils
-void print_sort_examples(void);
+// Util
 void print_array(int array_length, int array[array_length]);
 
 int main(void) {
-  print_sort_examples();
+  int bubble_array_to_sort[] = { 3, 2, 5, 4, 1, 9, 7, 11, 6, 12, 8 };
+  int selection_array_to_sort[] = { 5, 4, 3, 2, 11, 9, 6, 1, 7, 8, 12, 10, 111 };
+  int merge_array_to_sort[] = { 3, 99, 0, 33, 1, 9, 75, 11, 6, 211, 7, 16, 1000, -3 };
+  
+  printf("\n\033[01;33mBefore sort:\n");
+  printf("\033[00;03mArray to Bubble: \033[03;34m");
+  print_array(11, bubble_array_to_sort);
+  printf("\033[00;03mArray to Selection: \033[03;34m");
+  print_array(13, selection_array_to_sort);
+
+  bubble_sort(11, bubble_array_to_sort);
+  selection_sort(13, selection_array_to_sort);
+
+  printf("\n\033[01;32mAfter Sort:\n");
+  printf("\033[00;03m1) Bubble:\033[03;34m");
+  print_array(11, bubble_array_to_sort);
+  printf("\033[00;03m2) Selection: \033[03;34m");
+  print_array(13, selection_array_to_sort);
+
+  printf("\033[m\n");
+  return 0;
 }
 
 
@@ -64,52 +81,6 @@ void selection_sort(int array_length, int array[array_length]) {
   return;
 }
 
-// void merge_sort(int array_length, int array[array_length]) {
-  
-//   // int halves_size = array_length / 2;
-//   // int new_array[halves_size];
-
-//   // if (halves_size > 1) {
-//   //   for (int i = 0; i < halves_size; i++) {
-//   //     new_array[i] = array[i];
-//   //   }
-//   //   return merge_sort(halves_size, new_array);
-//   // }
-//   // else {
-    
-//   // }  
-
-//   return;
-// }
-
-void print_sort_examples(void) {
-  int bubble_array_to_sort[] = { 3, 2, 5, 4, 1, 9, 7, 11, 6, 12, 8 };
-  int selection_array_to_sort[] = { 5, 4, 3, 2, 11, 9, 6, 1, 7, 8, 12, 10, 111 };
-  int merge_array_to_sort[] = { 3, 99, 0, 33, 1, 9, 75, 11, 6, 211, 7, 16, 1000, -3 };
-  
-  printf("\nBefore Sort:");
-  printf("\n1) Bubble: ");
-  print_array(11, bubble_array_to_sort);
-  printf("\n2) Selection: ");
-  print_array(13, selection_array_to_sort);
-  // printf("\n3) Merge: ");
-  // print_array(15, merge_array_to_sort);
-
-  bubble_sort(11, bubble_array_to_sort);
-  selection_sort(13, selection_array_to_sort);
-  //merge_sort(15, merge_array_to_sort);
-
-  printf("\n\nAfter Sort:");
-  printf("\n1) Bubble: ");
-  print_array(11, bubble_array_to_sort);
-  printf("\n2) Selection: ");
-  print_array(13, selection_array_to_sort);
-  // printf("\n3) Merge: ");
-  // print_array(15, merge_array_to_sort);
-
-  printf("\n\n");
-}
-
 void print_array(int array_length, int array[array_length]) {
   printf("[ ");
   
@@ -121,7 +92,7 @@ void print_array(int array_length, int array[array_length]) {
     );
   }
 
-  printf("];");
+  printf("];\n");
 
   return;
 }
