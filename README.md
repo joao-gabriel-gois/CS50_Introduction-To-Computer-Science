@@ -3,6 +3,7 @@
 ### **Harvard's introduction to Computer Science course with solved and submitted exercises.**
 
 <br>
+
 <u>From its oficial website:</u>
 
 > _Introduction to the intellectual enterprises of computer science and the art of programming. This course teaches students how to think algorithmically and solve problems efficiently_.
