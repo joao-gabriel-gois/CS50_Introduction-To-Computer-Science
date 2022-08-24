@@ -23,13 +23,14 @@
 >
 >
 <br>
+<br>
 
- ### ⚠️ **This repo main goal is to share my version of Course's exercises, mainly**
-
+ ### ⚠️ **This repo main goal is to share my version of Course's exercises**
 
 <br>
 
 ## 📑 **Details: <u>[CS50 Official Website](https://cs50.harvard.edu/x/2022)</u>**
+<br>
 <br>
 
 ___
