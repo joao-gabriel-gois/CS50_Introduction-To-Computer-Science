@@ -25,8 +25,8 @@ for arg in "$@"; do
 done
 
 compile() (
-  # Compile process need to have the power to 
-  # Interrupt script in case of any errors
+  # To make keyboard interrupt be able to
+  # interrupt only 'compile' if it is running
   trap - INT
   
   source_file="$_dirname/$filename"
@@ -34,7 +34,8 @@ compile() (
 )
 
 run() (
-  # Once C binary is finally running, you can interrupt
+  # To make keyboard interrupt be able to
+  # interrupt only 'run' if it is running
   trap - INT
 
   if [[ $args == "" ]]; then
@@ -47,8 +48,9 @@ run() (
 compile
 run
 
-# So now, even interrupting run command above following
-# code will run anyway, and remove binary if it exists
+# So now, even interrupting in any of run and compile
+# commands above, bellow and remaining code will run
+# anyway, and remove binary if it exists
 ls $_dirname/.binary > /dev/null 2> /dev/null
 
 if [[ $? == 0 ]]; then

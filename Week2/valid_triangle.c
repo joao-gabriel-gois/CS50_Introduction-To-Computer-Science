@@ -27,28 +27,3 @@ bool is_valid_triangle(float a, float b, float c) {
 
   return a + b > c && a + c > b && b + c > a;
 }
-
-
-// void print_crescent_sort_args(int a, int b, int c) {
-//   if (a < 0 || b < 0 || c < 0) return;
-//   int small;
-//   int middle;
-//   int big;
-
-//   small = a <= b && a <= c ? a : (b <= a && b <= c ? b : c);
-
-//   if (small == a) {
-//     middle = b <= c ? b : c;
-//     big = c >= b ? c : b;
-//   }
-//   else if (small == b) {
-//     middle = a <= c ? a : c;
-//     big = c >= a ? c : a;
-//   }
-//   else if (small == c) {
-//     middle = b <= a ? b : a;
-//     big = a >= b ? a : b;
-//   }
-
-//   printf("\n[ %i, %i, %i ]\n", small, middle, big);
-// }

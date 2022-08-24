@@ -2,22 +2,23 @@
   <style>
     body {
       display: flex;
-      background-color: rgb(39, 42, 52); 
+      background-color: #024B78; 
       justify-content: center;
     }
 
     div {
       display: flex;
+      flex: 1;
       align-items: center;
-      justify-content: space-between;
-      margin-top: 30px;
+      justify-content: flex-start;
       flex-direction: column;
+      animation: slideInAndShow 2300ms;
     }
 
     h1 {
       color: rgb(221, 221, 221);
       font-family: IBM Plex Mono, Ubuntu, Arial;
-      margin: 28px 0px;
+      margin: 72px 0;
     }
 
     iframe {
@@ -27,12 +28,26 @@
       border-color: white;
       border-image: initial;
     }
+
+    @keyframes slideInAndShow {
+      from {
+        margin-left: 100%;
+        width: 300%;
+        opacity: 0;
+      }
+
+      to {
+        margin-left: 0%;
+        width: 100%;
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
   
   <div>
-    <h1>Welcome to my Scratch Project!</h1>
+    <h1>Welcome to "Aê Carai!" Project!</h1>
     <iframe
       src="https://scratch.mit.edu/projects/658005563/embed"
       allowtransparency="true"
