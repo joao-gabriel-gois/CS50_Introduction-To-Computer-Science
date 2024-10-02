@@ -10,20 +10,6 @@
     - It handles 2 different executable calls, with or without arguments. 
 comment
 
-# To avoid keyboard interrupt to stop whole script
-trap '' INT
-
-_dirname="$(pwd)"
-filename=$1
-args=""
-
-# Filling args if any
-for arg in "$@"; do
-  if [[ $arg != $1 ]]; then
-    args="${args} $arg";
-  fi
-done
-
 compile() (
   # To make keyboard interrupt be able to
   # interrupt only 'compile' if it is running
@@ -45,14 +31,22 @@ run() (
   fi
 )
 
-compile
-run
+main() {
+  # To avoid keyboard interrupt to stop whole script
+  trap '' INT
+  _dirname="$(pwd)"
+  filename=$1
+  args=""
+  # Filling args if any
+  for arg in "$@"; do
+    if [[ $arg != $1 ]]; then
+      args="${args} $arg";
+    fi
+  done
 
-# So now, even interrupting in any of run and compile
-# commands above, bellow and remaining code will run
-# anyway, and remove binary if it exists
-ls $_dirname/.binary > /dev/null 2> /dev/null
+  compile
+  run
+  [ -e "$_dirname/.binary" ] && rm $_dirname/.binary
+}
 
-if [[ $? == 0 ]]; then
-  rm $_dirname/.binary
-fi
+main $@

@@ -1,0 +1,10 @@
+{
+  "name": "js-trivia",
+  "version": "1.0.0",
+  "description": "CS 50's web week-8 exercise",
+  "scripts": {
+    "serve": "npx http-server ."
+  },
+  "author": "João Gabriel Souza Gois",
+  "license": "ISC"
+}

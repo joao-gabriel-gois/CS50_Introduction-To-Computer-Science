@@ -2,8 +2,8 @@ b
 **/b
 **/**/b
 **/**/**/b
-
-**/**/drafts-scratches-and-thrash/
+**/**/node_modules/
 **/**/exercises/filter*/images/*outputs/*
 **/**/exercises/recover*/*.jpg
 **/**/exercises/recover*/**/*.jpg
+.vscode/

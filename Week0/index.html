@@ -2,37 +2,31 @@
   <style>
     body {
       display: flex;
-      background-color: #024B78; 
+      background: linear-gradient(125deg, rgba(24, 114, 171, 0.6) 0%, rgba(11, 94, 146, 0.8)  28%, #024B78 100%); ; 
       justify-content: center;
     }
 
     div {
-      display: flex;
-      flex: 1;
-      align-items: center;
-      justify-content: flex-start;
-      flex-direction: column;
-      animation: slideInAndShow 2300ms;
+      display: grid;
+      place-content: center;
+      animation: slideInAndShow 544ms;
     }
 
     h1 {
       color: rgb(221, 221, 221);
       font-family: IBM Plex Mono, Ubuntu, Arial;
-      margin: 72px 0;
+      margin-top: 3dvh;
     }
 
     iframe {
-      border-radius: 9%;
-      border-width: 6px 6px 20px;
-      border-style: solid;
-      border-color: white;
-      border-image: initial;
+      border-radius: 2%;
+      border-width: 0;
     }
 
     @keyframes slideInAndShow {
       from {
         margin-left: 100%;
-        width: 300%;
+        width: 150%;
         opacity: 0;
       }
 
@@ -47,14 +41,14 @@
 <body>
   
   <div>
-    <h1>Welcome to "Aê Carai!" Project!</h1>
+    <h1>Welcome to "Aekarai" Project!</h1>
     <iframe
       src="https://scratch.mit.edu/projects/658005563/embed"
       allowtransparency="true"
       width="600" height="497"
       frameborder="0"
       scrolling="no"
-      allowfullscreen=""
+      allowfullscreen="true"
     >
     </iframe>
   </div>

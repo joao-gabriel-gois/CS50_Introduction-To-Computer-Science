@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+main() {
+  [ -z "$1" ] && echo "You need to inform the .db filename" && return 1;
+  run_sql_files $1
+}
+
+run_sql_files() {
+  SQL_FILES=$(ls *.sql)
+
+  for file in $SQL_FILES
+  do
+    cat $file | sqlite3 $1
+  done
+}
+
+main $1
+

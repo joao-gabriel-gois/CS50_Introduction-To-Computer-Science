@@ -1,0 +1,189 @@
+:root {
+  --body-bg: #ebf3ffc4;
+}
+
+body {
+  background-color: var(--body-bg);
+  width: 100dvw;
+}
+body:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.07;
+  filter: blur(6px);
+  background-image: url(img/bg.png);
+  background-repeat: no-repeat;
+  background-position: 10%;
+  background-size: cover;
+  z-index: -20;
+}
+
+
+main {
+  display: flex;
+  width: 90dvw;
+  margin: 0 5dvw;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  animation: present 1960ms ease;
+  margin: 5% 0;
+}
+
+#panel {
+  animation: present 2040ms ease;
+  margin: 2%;
+}
+
+h1/*, p */{
+  font-size: 16pt;
+  font-family: monospace;
+  border-width: 3px;
+  border-style: solid;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+  color: #2A3FAC;
+  width: 28.5vw;
+  padding: 10px 0;
+  padding-left: 1vw;
+  padding-right: 0.5vw;
+  background: rgba(140, 207, 249, 0.16);
+  overflow: hidden;
+  margin-left:8dvw;
+  box-shadow: 0 0 6px 0 rgba(12, 14, 13, .3);
+  text-align: inherit;
+  box-shadow: 6px 6px 80px rgba(24, 12, 58, 0.415);
+}
+
+p {
+  font-size: 14pt;
+  color: #2A3FAC;
+  font-family: 'Times New Roman', Times, serif;
+  /* (*1) I was trying to avoid height blink before removing content, not working*/
+  /* display: 'none'; */
+}
+
+span.latest {
+  margin: 0;
+  padding: 0;
+  margin-bottom: -0.4rem;
+  padding-left: 0.2rem;
+  background: #2A3FAC;
+  opacity: 0.2;
+  color: rgba(200, 224, 194, 0.9);
+  animation: blink 500ms infinite ease-in-out;
+  display: inline-block;
+  width: 18px;
+  height: 25px; /* 25px height works fine for 14pt font-sized paragraph */
+}
+
+#profile-pic {
+  height: 20dvh;
+  border-radius: 50%;
+  border-width: 3px;
+  border-style: solid;
+  color: #2A3FAC;
+  /* animation: present 1400ms ease-out; */
+  /* box-shadow: 0 0 8px 0 rgba(12, 14, 13, .3); */
+  box-shadow: 4px 4px 80px rgba(24, 12, 58, 0.415);
+}
+
+.tab-content {
+  width: 52vw;
+  background-color: #FFF;
+  border: 5 px white solid;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+  padding: 1rem 1.3rem;
+  /* box-shadow: 0 0 5px 0 rgba(221, 227, 224, 0.3); */
+  box-shadow: 9px 9px 80px rgba(24, 12, 58, 0.415);
+}
+
+.nav-link {
+  color: rgba(100, 180, 230, 1);
+  font-weight: 800;
+
+}
+.tab-pane {
+  height: 100%;
+}
+
+#contact-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: -0.5em 0.5em 1.5em;
+  padding: 1em 0.75em 2em; 
+}
+
+#contact-list img {
+  width: 48px;
+  transition: ease-in all 333ms;
+  cursor: pointer;
+  border-radius: 5px
+}
+
+#contact-list img:hover {
+  opacity: 0.57;
+}
+
+[aria-selected="true"].active {
+  color: #354ec9 !important;
+}
+
+[aria-selected="false"] {
+  border-top: 1px solid var(--body-bg) !important;
+  border-left: 1px solid var(--body-bg) !important;
+  border-right: 1px solid var(--body-bg) !important;
+  background-color: #dbebf6 !important;
+  box-shadow: 0 0 4px 0 rgba(12, 14, 13, .3);
+}
+
+[aria-selected="false"]:hover {
+  border-bottom: 0px !important;
+  border-color: #354ec9;
+  box-shadow: 0 0 4px 0 #354ec9;
+}
+
+/** Animations */
+@keyframes blink {
+  from {
+    opacity: inherit;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes present {
+  from {
+    transform: translateX(-10dvw);
+    opacity: 0.45;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+/* Create Responsive media query only for screens bellow 612px.
+@media  {
+  
+} */

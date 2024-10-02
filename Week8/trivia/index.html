@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            window.addEventListener('DOMContentLoaded', part1Handler);
+            window.addEventListener('DOMContentLoaded', part2Handler);
+
+            function part1Handler(e) {
+                const part1Container = document.querySelector('.section');
+                const buttons = [...part1Container.querySelectorAll('button')];
+                const buttonsDefaultStyles = buttons.map(btn => getComputedStyle(btn).backgroundColor);
+                const question = part1Container.querySelector('h3');
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', event => {
+                        event.preventDefault();
+
+                        buttons.forEach((button, index) => {
+                            button.style.backgroundColor = buttonsDefaultStyles[index];
+                        });
+
+                        [...part1Container.querySelectorAll('p')].forEach(p => p.remove());
+
+                        if (event.target.innerText === 'The Revenant') {
+                            event.target.style.backgroundColor = 'green';
+                            question.insertAdjacentHTML('afterend', '<p>Correct!</p>');
+                            return;
+                        }
+                        event.target.style.backgroundColor = 'red';
+                        question.insertAdjacentHTML('afterend', '<p>Incorrect!</p>');
+                    });
+                });
+            }
+
+            function part2Handler() {
+                const part2Container = document.querySelectorAll('.section')[1];
+                const button = part2Container.querySelector('button');
+                const buttonDefaultStyle = getComputedStyle(button).backgroundColor;
+                const question = part2Container.querySelector('h3');
+                const input = part2Container.querySelector('input');
+
+                button.addEventListener('click', (event) => {
+                    [...part2Container.querySelectorAll('p')].forEach(p => p.remove());
+
+                    if (input.value.toLowerCase() === 'brasília') {
+                        event.target.style.backgroundColor = 'green';
+                        question.insertAdjacentHTML('afterend', '<p>Correct!</p>');
+                        return;
+                    }
+
+                    event.target.style.backgroundColor = 'red';
+                    question.insertAdjacentHTML('afterend', '<p>Incorrect!</p>');
+                    setTimeout(() => {
+                        event.target.style.backgroundColor = buttonDefaultStyle;
+                    }, 5000);
+                 });
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>In what movie did DiCrapio finally got an Oscar?</h3>
+
+                <button>The Revenant</button>
+                <button>The Wolf of Wall Street</button>
+                <button>Catch me if you can</button>
+                <button>Titanic</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What is the Capital City of Brazil (In brazilian portuguese)?</h3>
+                <input type="text"/>
+                <button>Check Answer!</button>
+            </div>
+        </div>
+    </body>
+</html>

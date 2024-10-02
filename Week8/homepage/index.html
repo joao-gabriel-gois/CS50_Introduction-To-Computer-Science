@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <link href="styles.css" rel="stylesheet">
+    <title>Buzzy Byte / João Gabriel Souza Gois - Webpage</title>
+  </head>
+  <body>
+    <main>
+      <div id="header">
+        <img id="profile-pic" src="img/profile.jpg" />
+        <h1>Hello, I'm João Gabriel Souza Gois! 🙃</h1>
+      </div>
+      <session id="panel">
+        <ul 
+          class="nav nav-tabs" id="tabs" role="tablist">
+          <li 
+            class="nav-item"
+            role="presentation">
+            
+            <button 
+              class="nav-link active"
+              id="about-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#about-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="about-tab-pane"
+              aria-selected="true">
+
+                <b class="$">$</b> whoami
+            </button>
+          </li>
+          <li 
+            class="nav-item"
+            role="presentation">
+
+            <button 
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="profile-tab-pane"
+              aria-selected="false">
+                
+              <b class="$">$</b> history</button>
+          </li>
+          <li 
+            class="nav-item" role="presentation">
+            <button 
+              class="nav-link" 
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#contact-tab-pane"
+              type="button" role="tab"
+              aria-controls="contact-tab-pane"
+              aria-selected="false">
+              
+              <b class="$">$</b> ping</button>
+          </li>
+        </ul>
+        <div 
+          class="tab-content"
+          id="tab-content">
+          
+          <div 
+            class="tab-pane fade show active"
+            id="about-tab-pane"
+            role="tabpanel"
+            aria-labelledby="about-tab"
+            tabindex="0">
+              <p>
+                I am a passionate and quick-learning software developer with a foundation in social sciences, transitioning seamlessly
+                into the IT and web development world. My enthusiasm lies in sharing knowledge, continuously learning new technologies
+                and building scalable and valuable products. Meeting interesting people and working with international teams excites me, as it
+                allows me to create impactful and robust solutions. My technical interests encompass full-stack development, Linux and mobile
+                application development, driven by a commitment to excellence and continuous improvement. I also love to travel, to listen and play
+                music and discuss about economy and science.
+              </p>
+          </div>
+          <div 
+            class="tab-pane fade"
+            id="profile-tab-pane"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+            tabindex="0">
+            <p>
+              With over five years of experience in the technology sector, I have been worked as a Solutions Engineer and, later, as Software Developer,
+              focusing on API integrations, mobile SDKs and full-stack development. I have successfully led global client integrations,
+              managed technology transfers and collaborated closely with engineering, sales and customer success teams to enhance product
+              offerings. My educational background includes studies in social sciences at the University of São Paulo and ongoing pursuit of
+              a Bachelor’s Degree in Computer Engineering at UNIVESP. Additionally, I have completed intensive bootcamps in React Native,
+              React JS and Node.js through RocketSeat and have engaged in freelance projects involving Linux automation and mobile
+              app development. My technical expertise includes Vanilla.js, TypeScript, React.js, Node.js and Linux systems, complemented by
+              proficiency in English, Portuguese and intermediate Spanish.
+            </p>
+          </div>
+          <div 
+            class="tab-pane fade"
+            id="contact-tab-pane"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
+            tabindex="0">
+              <p>
+                You can find me here:
+              </p>
+              <ul id="contact-list">
+                <li><a target="_blank" href="https://www.linkedin.com/in/jo%C3%A3o-gabriel-gois/"><img src="img/linkedin.png"></a></li>
+                <li><a target="_blank" href="https://github.com/joao-gabriel-gois"><img src="img/github.png" /></a></li>
+                <li><a target="_blank" href="mailto:gois.jg.dev@gmail.com"><img src="img/gmail.png" /></a></li>
+              </div>
+          </div>
+        </div>
+      </session>
+    </main>
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
