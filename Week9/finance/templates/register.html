@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h1>Create an Account!</h1>
+    <form action="/register" method="post">
+        <input
+            name="username"
+            type="text"
+            autofocus
+            autocomplete="off"
+            placeholder="Username"
+            class="form-control mx-auto w-auto"
+        >
+        <input
+            name="password"
+            type="password"
+            autofocus
+            autocomplete="off"
+            placeholder="Password"
+            class="form-control mx-auto w-auto"
+        >
+        <input
+            name="confirmation"
+            type="password"
+            autofocus
+            autocomplete="off"
+            placeholder="Confirm the password"
+            class="form-control mx-auto w-auto"
+        >
+        <button
+            type="submit"
+            class="btn btn-primary"
+        >
+            Sign up!
+        </button>
+    </form>
+{% endblock %}

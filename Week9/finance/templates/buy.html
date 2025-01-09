@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy a Stock
+{% endblock %}
+
+{% block main %}
+    <h1>Buy a Stock!</h1>
+    <form action="/buy" method="post">
+        <input
+            name="symbol"
+            type="text"
+            autofocus
+            autocomplete="off"
+            placeholder="Stock Symbol"
+            class="form-control mx-auto w-auto"
+        >
+        <input
+            name="shares"
+            type="number"
+            autofocus
+            autocomplete="off"
+            placeholder="How many shares?"
+            class="form-control mx-auto w-auto"
+        >
+        <button
+            type="submit"
+            class="btn btn-primary"
+        >
+            Buy!
+        </button>
+    </form>
+    <script>
+        (() => {
+            document.addEventListener('DOMContentLoaded', () => {
+                const stock = JSON.parse('{{ query_stock | tojson | safe }}');
+                if (stock === null) return;
+                if (stock.length > 0 && isUpperCase(stock)) {
+                    const symbolInput = document.querySelector('[name="symbol"]');
+                    if (symbolInput === null) return;
+                    symbolInput.value = stock;
+                }
+                function isUpperCase(str) { return str === str.toUpperCase(); };
+            });
+        })();
+    </script>
+{% endblock %}

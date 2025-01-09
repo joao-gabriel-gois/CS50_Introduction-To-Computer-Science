@@ -1,0 +1,19 @@
+activate_venv() {
+  apt list --installed python3.8-venv 2> /dev/null | grep -o python3.8-venv >> /dev/null
+  if [ $? != 0 ]; then
+    printf "The lower level dependency python3.8-venv was not found and it is "
+    printf "required for Debian based systems.\n"
+    read -p "Do you want to install it? [y/N] " -n 1 -r
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      sudo apt install python3.8-venv
+    else
+      exit 1
+    fi
+  fi
+  source venv/bin/activate &> /dev/null
+  if [ $? != 0 ]; then
+    python3 -m venv venv
+    source venv/bin/activate
+    pip3 install -r requirements.txt
+  fi
+}

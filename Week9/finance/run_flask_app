@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source scripts/activate_venv
+run() {
+  activate_venv
+  flask run
+}
+
+run

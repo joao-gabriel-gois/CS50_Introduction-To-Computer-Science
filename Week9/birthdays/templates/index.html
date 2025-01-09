@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <form action="/" method="post">
+                    <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+                    <input autocomplete="off" autofocus name="birthday" placeholder="Birth Day" type="number">
+                    <input autocomplete="off" autofocus name="birthmonth" placeholder="Birth Month" type="number">
+                    <button type="submit">Add it!</button>
+                  </form>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in birthdays %}
+                            <tr>
+                                <td>{{ item["name"] }}</td>
+                                <td>{{ item["day"] }} / {{ item["month"] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+    <script>
+            const inputs = [...document.querySelector('form').children].filter(el => el.tagName === 'INPUT');
+            inputs.forEach(input => {
+                input.addEventListener('input', validate);
+            });
+
+            function validate(event) {
+                const submit = document.querySelector('[type="submit"]');
+                const t = event.target;
+                switch(t.name) {
+                    case 'name':
+                        if (t.value.length < 3) {
+                            renderValidationMessage(t, "Name must have more than 3 character");
+                            submit.disabled = true;
+                            break
+                        }
+                        submit.disabled = false;
+                        removeValidationMessage(t);
+                        break;
+                    case 'birthday':
+                    if (t.value < 0 || t.value > 31) {
+                            renderValidationMessage(t, "Days must be bigger than 0 and smaller than 31");
+                            submit.disabled = true;
+                            break
+                        }
+                        submit.disabled = false;
+                        removeValidationMessage(t);
+                        break;
+                    case 'birthmonth':
+                    if (t.value < 0 || t.value > 12) {
+                        renderValidationMessage(t, "Months must be bigger than 0 and smaller than 12");
+                        submit.disabled = true;
+                        break
+                    }
+                    submit.disabled = false;
+                    removeValidationMessage(t);
+                    break;
+                }
+            }
+
+            function renderValidationMessage(el, message) {
+                if (el.nextElementSibling.tagName === 'P') return;
+                const p = document.createElement('p');
+                p.innerText = message;
+                p.style.color = "red";
+                el.insertAdjacentElement('afterend', p);
+            }
+
+            function removeValidationMessage(el) {
+                const nextSib = el.nextElementSibling;
+                if (nextSib.tagName === 'P') nextSib.remove();
+            }
+    </script>
+</html>

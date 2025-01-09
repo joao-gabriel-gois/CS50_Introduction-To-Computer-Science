@@ -1,0 +1,18 @@
+
+a {
+  text-decoration: none;
+  transition: ease 200ms all;
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: 0.58;
+}
+
+.login {
+  color: #0AC83A;
+}
+
+.logout {
+  color: #F43D14;
+}

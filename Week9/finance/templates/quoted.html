@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ response["name"] }} Stock Price
+{% endblock %}
+
+{% block main %}
+    <h1>Current {{ response["symbol"] }} Stock Price</h1>
+    <session id="stock-details">
+        <p><strong>Company:</strong> {{ response["name"] }}</p>
+        <p><strong>Price:</strong> <span id="price">{{ response["price"] | usd }}</span></p>
+        <p><strong>Symbol:</strong> {{ response["symbol"] }}</p>
+    </session>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    {% if type == 'sold' or type == 'bought' or type == 'deposit' %}
+        <div id="transaction-notif">
+            {{ 'Bought!' if type == "bought" else 'Sold!' if type == "sold" else 'Deposit Done!' if type == "deposit" }}
+        </div>
+    {% endif %}
+    <h1>Stonks!</h1>
+    {% if (lookups | length) > 0 %}
+        <table>
+            <thead>
+                <tr>
+                    <th class="d1">Company</th>
+                    <th class="d2">Symbol</th>
+                    <th class="d3">Price</th>
+                    <th class="d4">Total Stock Value:</th>
+                    <th class="d5">Operation:</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in lookups %}
+                    <tr>
+                        <td class="d1">{{ item["name"] }}</td>
+                        <td class="d2">{{ item["symbol"] }}</td>
+                        <td class="d3">{{ item["price"] | usd }}</td>
+                        <td class="d4">{{ (stocks[item["stock_index"]]["shares"] * item["price"]) | usd }}</td>
+                        <td class="d5">
+                            <a class="btn btn-primary op" href="/buy?stock={{ item['symbol'] }}">Buy</button>
+                            <a class="btn btn-primary op" href="/sell?stock={{ item['symbol'] }}">Sell</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div>
+            <p style="color: #D8A63F;font-size: 14pt;">You don't have any stock share.</p>
+        </div>
+    {% endif %}
+    <session id="total-wrapper">
+        <div id="total">
+            <p><strong>Grand Total</strong>: {{ total["grand_total"] }}</p>
+            <p><strong>Cash</strong>: {{ total["cash"] }}</p>
+        </div>
+    </session>
+{% endblock %}

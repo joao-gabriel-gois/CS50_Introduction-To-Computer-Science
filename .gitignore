@@ -6,4 +6,9 @@ b
 **/**/exercises/filter*/images/*outputs/*
 **/**/exercises/recover*/*.jpg
 **/**/exercises/recover*/**/*.jpg
+
+**/**/flask_session
+**/**/__pycache__
+**/**/venv
+
 .vscode/

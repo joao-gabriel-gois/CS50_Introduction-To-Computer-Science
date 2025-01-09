@@ -33,7 +33,7 @@ void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
 // Utils prototypes
-int get_pair_strenth(pair p);
+int get_pair_strength(pair p);
 
 int main(int argc, string argv[])
 {
@@ -161,24 +161,22 @@ void add_pairs(void)
 
 // [CS50] Sort pairs in decreasing order by strength of victory
 // TODO -> To create versions applying all sorts algorithms presented in class3
+// This sort algorithm is failing on check 50. Need to debug more.
 void sort_pairs(void)
 {
-    for (int i = 1; i < pair_count; i++)
+    // bubble sort should not be a problem once MAX == 9.
+    for (int i = 0; i < pair_count - 1; i++)
     {
-        pair previous_pair = pairs[i - 1];
-        pair current_pair = pairs[i];
-
-        int previous_pair_strength = get_pair_strenth(previous_pair);
-        int current_pair_strength = get_pair_strenth(current_pair);
-
-        if (previous_pair_strength < current_pair_strength)
+        for (int j = 0; j < pair_count - i - 1; j++)
         {
-            pairs[i - 1] = current_pair;
-            pairs[i] = previous_pair;
+            if (get_pair_strength(pairs[j]) < get_pair_strength(pairs[j + 1]))
+            {
+                pair temp = pairs[j];
+                pairs[j] = pairs[j + 1];
+                pairs[j + 1] = temp;
+            }
         }
     }
-
-    return;
 }
 
 // [CS50] Lock pairs into the candidate graph in order, without creating cycles
@@ -212,7 +210,6 @@ void lock_pairs(void)
             locked[current_winner][current_loser] = true;
         }
     }
-    return;
 }
 
 // [CS50] Print the winner of the election
@@ -244,12 +241,10 @@ void print_winner(void)
     {
         printf("%s\n", candidates[winner_index]);
     }
-
-    return;
 }
 
 // Utils
-int get_pair_strenth(pair p)
+int get_pair_strength(pair p)
 {
-    return preferences[p.winner][p.loser];
+    return preferences[p.winner][p.loser] - preferences[p.loser][p.winner];
 }

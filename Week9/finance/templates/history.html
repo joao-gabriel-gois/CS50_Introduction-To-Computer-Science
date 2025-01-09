@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1>History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th class="d1">Transaction</th>
+                <th class="d2">Symbol</th>
+                <th class="d3">Price</th>
+                <th class="d4">Shares</th>
+                <th class="d5">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td class="d1" style="color:{{ '#71AF3A;' if transaction['type'] == 'sell' else '#DA8927;'}}">
+                        <b>{{ transaction["type"] }}</b>
+                    </td>
+                    <td class="d2">{{ transaction["symbol"] }}</td>
+                    <td class="d3">{{ transaction["price"] | usd }}</td>
+                    <td class="d4">{{ transaction["shares"] }}</td>
+                    <td class="d5">{{ transaction["timestamp"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+source scripts/activate_venv
+
+DATABASE_NAME="finance"
+
+main() {
+    if [ ! -z  $1 ]; then
+        printf "You've sent an argument for a database.\n"
+        read -p "Are you sure you want to switch to a database named $1? [y/N]: " answer
+        norm_ans=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
+        if [[ "$norm_ans" == "y" || "$norm_ans" == "yes" ]]; then
+            printf "Ok. Creating...\n"
+            sleep 1.5
+            DATABASE_NAME="$1"
+        else
+            printf "Using default DATABASE_NAME=\"$DATABASE_NAME\"\n"
+        fi
+    fi
+    db_path="$DATABASE_NAME.db"
+    if [ ! -e "$db_path" ]; then
+        printf "Database name wasn't found, checking it in tests dir\n"
+        db_path="./db/test/$db_path"
+    fi
+    if [ ! -e $db_path ]; then
+        sqlite3 $db_path ""
+        printf "Database doesn't exists in tests dir as well, new db was created\n";
+    fi
+    printf "Running Migrations in $db_path file:\n"
+    activate_venv
+    python3 scripts/migration.py $db_path
+}
+
+main $1

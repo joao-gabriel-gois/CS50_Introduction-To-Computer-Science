@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell a Stock
+{% endblock %}
+
+{% block main %}
+    <h1>Sell a Stock!</h1>
+    <form action="/sell" method="post">
+        <div class="row">
+            <select
+                name="symbol"
+                autofocus
+                autocomplete="off"
+                placeholder="Stock Symbol"
+                class="form-control mx-auto w-auto"
+            >
+                {% for stock in stocks %}
+                    <option value="{{ stock['symbol'] }}">{{ stock["symbol"] }}</option>
+                {% endfor %}
+            </select>
+            <input
+                name="shares"
+                type="number"
+                autofocus
+                autocomplete="off"
+                placeholder="How many shares?"
+                class="form-control mx-auto w-auto"
+            >
+        </div>
+        <button
+            type="submit"
+            class="btn btn-primary"
+        >
+            Sell!
+        </button>
+    </form>
+    <script>
+        (() => {
+            document.addEventListener('DOMContentLoaded', () => {
+                const stock = JSON.parse('{{ query_stock | tojson | safe }}');
+                if (!stock) return;
+                if (stock.length > 0 && isUpperCase(stock)) {
+                    const symbolInput = document.querySelector('[name="symbol"]');
+                    if (symbolInput === null) return;
+                    symbolInput.value = stock;
+                }
+                function isUpperCase(str) { return str === str.toUpperCase(); };
+            });
+        })();
+    </script>
+{% endblock %}
