@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../shared/alerts.css" rel="stylesheet">
+    <title>Buzzy Paint</title>
+  </head>
+  <body>
+    <div>
+      <h1>😔</h1>
+      <h1>Page not found</h1>
+      <img src="../assets/404.png" />
+    </div>
+  </body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      display: flex;
+      height: 100vh;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: #a54be5;
+      overflow: hidden;
+      background-color: rgba(87, 15, 155, 0.747);
+      background-image: url(../assets/bg.svg);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2em;
+    }
+    img {
+      width: 16rem;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 14pt;
+      font-weight: 600;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: rgba(41, 15, 67, 0.558);
+      padding: 2em;
+      border-radius: 9px;
+    }
+
+    @keyframes anim404 {
+      from {
+        transform: scale(0.8)
+      }
+      to {
+        rotate: scale(1.2);
+      }
+    }
+
+  </style>
+</html>

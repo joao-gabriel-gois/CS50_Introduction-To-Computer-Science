@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buzzy Paint</title>
+    <script src="index.js" type="module"></script>
+  </head>
+  <body>
+    <div id="top-side">
+      <img src="assets/pencil_case.png" />
+      <h1>Buzzy Paint</h1>
+    </div>
+    <div id="bottom-side">
+      <img src="assets/loading.png" />
+      <p>Loading</p>
+    </div>
+  </body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      display: flex;
+      height: 100vh;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: #500b81;
+      overflow: hidden;
+      background-color: rgba(87, 15, 155, 0.747);
+      background-image: url(assets/bg.svg);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2em;
+    }
+    img {
+      width: 12rem;
+      opacity: 0.75;
+    }
+    #bottom-side {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 14pt;
+      font-weight: 600;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    div {
+      animation: show 333ms ease-out;
+    }
+    #bottom-side p {
+      margin: 1em 0em;
+    }
+    #bottom-side img {
+      width: 6rem;
+      animation: loading linear 1.5s infinite;
+    }
+
+    @keyframes loading {
+      from {
+        rotate: 0deg;
+      }
+      to {
+        rotate: 360deg;
+      }
+    }
+
+    @keyframes show {
+      from {
+        transform: translateX(-1.5rem);
+        opacity: 0.2;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+  </style>
+</html>
