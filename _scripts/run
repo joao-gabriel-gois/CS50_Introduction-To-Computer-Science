@@ -10,13 +10,16 @@
     - It handles 2 different executable calls, with or without arguments. 
 comment
 
+COMPILE_OPTIONS="-lm -pthread"
+
 compile() (
   # To make keyboard interrupt be able to
   # interrupt only 'compile' if it is running
   trap - INT
   
   source_file="$_dirname/$filename"
-  gcc $source_file -o .binary -lm -lcs50
+  gcc $source_file -o .binary "$@"
+  # CS50 lib: -lcs50, other examples
 )
 
 run() (
@@ -44,7 +47,7 @@ main() {
     fi
   done
 
-  compile
+  compile $COMPILE_OPTIONS
   run
   [ -e "$_dirname/.binary" ] && rm $_dirname/.binary
 }

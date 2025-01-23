@@ -12,3 +12,7 @@ b
 **/**/venv
 
 .vscode/
+
+**/**/.env
+**/**/script.ts
+**/**/.test/
